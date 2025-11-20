@@ -8,14 +8,25 @@ const [customers,setCustomer] = useState([]);
 
 
 useEffect(() => {
+    // Use a reference or a simple variable outside the async function
+    let ignore = false; 
+
     const loadCustomers = async () => {
         const res = await API.get("/customers");
-        console.log(res.data);
-        setCustomer(res.data);
+        
+        // Only update state if we haven't been asked to ignore the result
+        if (!ignore) {
+            console.log(res.data);
+            setCustomer(res.data);
+        }
     };
 
     loadCustomers();
-
+    
+    // Cleanup: Set ignore to true when the component unmounts
+    return () => {
+        ignore = true;
+    };
 }, []);
 
   return (

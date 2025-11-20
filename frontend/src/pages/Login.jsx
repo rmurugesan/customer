@@ -1,11 +1,21 @@
 import { useState } from "react";
-// import { Navigate } from "react-router-dom";
+import { Navigate } from 'react-router-dom';
+
 
 import API from "../services/api";
+import Home from "./Home";
 
 export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+//  const navigate = useNavigate();
+  
+const token = localStorage.getItem('token');
+  if(token) { 
+  return (<>
+    <Navigate to='/home'/>
+   </>) }
+
 
   const login = async (e) => {
     e.preventDefault();
@@ -27,7 +37,9 @@ export default function Login() {
     } catch (err) {
       alert(err.response.data.error);
     }
-  };
+  }
+
+
 
   return (
     <>
@@ -60,8 +72,10 @@ export default function Login() {
         
       </form>
       </div>
+        <a href="/signup" > Signup </a>
             </div>
             {/* END OF FORM CARD */}
+       
         </div>
     </div>
 </div>

@@ -7,6 +7,13 @@ import ProtectedRoute from "./components/ProtectedRoute";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Header from "./pages/Header";
 import Footer from "./pages/Footer";
+import About from "./pages/About";
+import Contact from "./pages/Contact";
+import SignupForm from "./pages/SignupForm";
+import Home from "./pages/Home";
+import CustomerList from "./pages/CustomerList";
+import CustomerForm from "./pages/CustomerForm";
+
 
 export default function App() {
   return (
@@ -35,8 +42,43 @@ export default function App() {
             </ProtectedRoute>
           }
         />
+        <Route
+        path="/customers"
+        element={
+          <ProtectedRoute allowedRoles={["admin", "manager"]}>
+            <CustomerList />
+          </ProtectedRoute>
+        }
+        />
+
+        <Route
+        path="/customers/add"
+        element={
+          <ProtectedRoute allowedRoles={["admin", "manager"]}>
+            <CustomerForm />
+          </ProtectedRoute>
+        }
+        />
+
+        <Route
+        path="/customers/edit/:id"
+        element={
+          <ProtectedRoute allowedRoles={["admin", "manager"]}>
+            <CustomerForm />
+          </ProtectedRoute>
+        }
+        />
+
+        <Route path="/about" element={<About />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/signup" element={<SignupForm />} />
+        <Route path="/home" element={<Home />} />
 
         <Route path="/" element={<Login />} />
+        <Route path="*" element={<div>404 Not Found</div>} />
+        
+        {/* <Route path="/" element={<Login />} /> */}
+
       </Routes>
       <Footer />
       </div>

@@ -1,0 +1,35 @@
+.container {
+  padding: 20px;
+}
+
+.customer-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.customer-table th, .customer-table td {
+  padding: 10px;
+  border: 1px solid #ddd;
+}
+
+.add-btn, .edit-btn, button {
+  padding: 8px 12px;
+  background: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  text-decoration: none;
+}
+
+.customer-form input,
+.customer-form select {
+  display: block;
+  margin-bottom: 10px;
+  padding: 8px;
+  width: 300px;
+}
+
+.tier-prime { color: #d9534f; font-weight: bold; }
+.tier-gold { color: #f0ad4e; font-weight: bold; }
+.tier-silver { color: #5bc0de; font-weight: bold; }

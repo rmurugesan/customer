@@ -20,7 +20,7 @@ function Logout() {
   };
 
   return (
-    <button onClick={handleLogout}>
+    <button onClick={handleLogout} class="btn btn-outline-danger">
       Logout
     </button>
   );
