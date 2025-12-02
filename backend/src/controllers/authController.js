@@ -19,7 +19,7 @@ const { email, password } = req.body;
     const user = result[0][0];
 
 
-    const valid = await bcrypt.compare(password, user.password);
+    const valid = await bcrypt.compare(password, user.PASSWORD);
 
 
     if (!valid) return res.status(400).json({ error: "Invalid password" });
